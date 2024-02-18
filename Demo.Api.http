@@ -1,0 +1,19 @@
+### Demo query
+// Demo query that shows that id field will be available to the middleware because it is explicitly projected by the 
+// [IsProjected] attribute. However the author field will is not possible to access in the demo field middleware.
+GRAPHQL http://localhost:5017/graphql
+
+query Books {
+    books {
+        pageInfo {
+            hasNextPage
+            hasPreviousPage
+            startCursor
+            endCursor
+        }
+        nodes {
+            title
+            authorId
+        }
+    }
+}
